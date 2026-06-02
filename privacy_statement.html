@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BrailleKeyboard Privacy Statement</title>
+<meta name="description" content="Privacy statement for the BrailleKeyboard application">
+<style>
+:root { color-scheme: light dark; }
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.7;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid currentColor;
+  background: Canvas;
+}
+a:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+li { margin-bottom: 0.75rem; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header>
+  <h1>BrailleKeyboard Privacy Statement</h1>
+</header>
+
+<main id="main-content">
+  <section aria-labelledby="overview">
+    <h2 id="overview">Privacy Overview</h2>
+    <ul>
+      <li>BrailleKeyboard has no network access.</li>
+      <li>BrailleKeyboard does not access the disk, except to read an optional configuration file when it starts up.</li>
+      <li>BrailleKeyboard only remembers the last three braille glyphs for the purposes of expanding contractions, and has no understanding of the input beyond this very limited logic.</li>
+      <li>BrailleKeyboard does not, by default, log any keystrokes. The user can enable this for the purposes of debugging by altering the log level in the optional configuration file to DEBUG.</li>
+      <li>When DEBUG logging is enabled, logging is written only to the console. Any further distribution requires the user to manually copy the console output.</li>
+      <li>It is not recommended to enable DEBUG logging except when specifically investigating a problem. When debugging, non-sensitive input should be used whenever possible.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>BrailleKeyboard Privacy Statement</p>
+</footer>
+</body>
+</html>
