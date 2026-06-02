@@ -125,7 +125,9 @@ code {
 <h2 id="introduction">Introduction <a class="anchor-link" href="#introduction" aria-label="Link to section Introduction">#</a></h2>
 <p>This is a small app that turns an ordinary keyboard into  a braille keyboard. To enter a braille combination you press all the keys correponding to the braille code, and then release any or all of them to indicate that the code is complete.</p>
 
-<p>The app is written for Windows and implements Unified English Braille (UEB) based upon The Rules of Unified English Braille, Second Edition 2013. Being a keyboard, not an editor in its own right, BrailleKeyboard interacts with other Windows apps. As such, aspects such as styling (for example bold and italics) are implemented in these apps using their own control codes, and therefore BrailleKeyboard doesn&#x27;t independently implement those UEB codes.</p>
+<p>The app is written and tested for Windows 64 and implements Unified English Braille (UEB) based upon The Rules of Unified English Braille, Second Edition 2013.</p>
+
+<p>Being a keyboard, not an editor in its own right, BrailleKeyboard interacts with other Windows apps. As such, the formatting aspects of UEB, for example bold and italics, are left to the individual apps, and therefore ignored by BrailleKeyboard. For most apps that implement bold and italic formatting, you would use the standard keyboard shortcuts Ctrl + B amd Ctrl + I.</p>
 
 
 <h3 id="prerequisites">Prerequisites <a class="anchor-link" href="#prerequisites" aria-label="Link to section Prerequisites">#</a></h3>
@@ -135,7 +137,7 @@ code {
 
 
 <h3 id="specifications">Specifications <a class="anchor-link" href="#specifications" aria-label="Link to section Specifications">#</a></h3>
-<p>Operating System: Windows (tested on Windows 10 with a UK keyboard)</p>
+<p>Operating System: Windows x64 (tested on Windows 10 and 11 with a UK keyboard)</p>
 <p>Braille: based upon Unified English Braille, 2nd edition 2013</p>
 
 
@@ -143,20 +145,20 @@ code {
 <h2 id="basics">Basics <a class="anchor-link" href="#basics" aria-label="Link to section Basics">#</a></h2>
 
 <h3 id="console">Console <a class="anchor-link" href="#console" aria-label="Link to section Console">#</a></h3>
-<p>When running, the keyboard opens a console window into which it puts any logging. This doesn not need to be focused, but does give a mechanism for lknowing the keyboard is running. See Configuration-&gt;Logging for more details.</p>
+<p>When running, the keyboard opens a console window into which it puts any logging. This doesn not need to be focused, but does give a mechanism for lknowing when the keyboard is running and will appear in the TaskBar. There is no need for the user to interact with the console in any way, unless trying to obtain debugging information. See Configuration-&gt;Logging for more details.</p>
 
 
 <h3 id="using-the-keyboard">Using The Keyboard <a class="anchor-link" href="#using-the-keyboard" aria-label="Link to section Using The Keyboard">#</a></h3>
-<p>The Braille Keyboard maps the letter and punctuation keys of the standard keyboard. The numeric, number keypad, function, cursor and control keys are all unaffected. Thus, when the keyboard is enabled the letter section of the keyboard will act for braille, which will mean most of the keys do nothing. See below for the mappings of these keys to braille.</p>
+<p>The Braille Keyboard maps the letter and punctuation keys of the standard keyboard. The numeric, number keypad, function, cursor and control keys are all unaffected and will work as normal. Thus, when BraiileKeyboard is enabled the letter and punctuation section of the keyboard will act for braille, which will mean most of the keys do nothing. See below for the mappings of these keys to braille. Only the mapped keys are active when BrailleKeyboard is enabled.</p>
 
-<p>All the unaffected keys work as normal when the Braille Keyboard is enabled, including in combination with letter keys. For example, when the keyboard is active, you will need to press the keys F and J to achoeve the letter C (as pins 1 and 4). The key C will do nothing as it is not mapped as a braille pin or as a cursor key. However, if the Control key is pressed, then the key C is available to be used in combination, and would in most applications instruct a copy operation. The effect is that if an unaffected key is used, then the braille functionality is disabled until no unaffected key is pressed.</p>
+<p>All the unaffected keys work as normal when the Braille Keyboard is enabled, including in combination with letter keys. For example, when BrailleKeyboard is active, you will need to press the keys F and J to achoeve the letter C (as pins 1 and 4). The key C will do nothing as it is not mapped as a braille pin or as a cursor key. However, if the Control key is pressed, then the key C is available to be used in combination, and would in most applications instruct a copy operation. The effect is that if a control key is used, then the braille functionality is disabled until no control key is pressed.</p>
 
 
 
 <h3 id="keyboard-layout">Keyboard Layout <a class="anchor-link" href="#keyboard-layout" aria-label="Link to section Keyboard Layout">#</a></h3>
 
 <h4 id="braille-pins">Braille Pins <a class="anchor-link" href="#braille-pins" aria-label="Link to section Braille Pins">#</a></h4>
-<p>BrailleKeyboard reassigns the alphabetic and punctuation keys on your keyboard. The surrounding keys are unaffected and work as normal, namely the control keys, Space, Return, and the numeric keys. Function leys. any numeric keypad and cursor keys. If you use the control keys (Shift, Control, Alt, Windows) the alphabetic keys work as normal. Ctrl + Return will switch the Braille component of the keyboard on or off, both using the Braille keyboard, when active and the normal keyboard keys. When the Braille keyboard is turned off, your keyboard will operate completely normally.</p>
+<p>BrailleKeyboard reassigns the alphabetic and punctuation keys on your keyboard. The surrounding keys are unaffected and work as normal, namely the control keys, Space, Return, and the numeric keys. Function leys. any numeric keypad and cursor keys are similarly unaffected. If you use the control keys (Shift, Control, Alt, Windows) the alphabetic keys work as normal. Ctrl + Return will switch the Braille component of the keyboard on or off, both using the Braille keyboard, when active and the normal keyboard keys. When the Braille keyboard is turned off, your keyboard will operate completely normally.</p>
 
 <p>The assignment of keys to braille is based upon a UK keyboard and is anchored on the F and J keys, which should have tactile bumps. The US keyboard is a very similar layout and I would expect it to work in the same way. I use this app with my index fingers on the F and J and my other fingers resting on the neighbouring keys of the row. This means that the left hand operates the standard Braille pins 1 through 3, and the right hand pins 4 through 6, each jand using the index through to the ring finger. The little fingers rest over what are often referred to as pins 7 and 8 for extended Braille, but here are used for control purposes, not extended Braille. Both thumbs use the Space key, which works as normal.</p>
 
@@ -190,8 +192,11 @@ code {
 </tbody>
 </table></div>
 
-<p>Pins 1 through 6 are used as defined in the UEB specification. Pin 8 is used as the Return or Enter key. Pon 7 on its own is used as Tab.</p>
-<p>On most keyboads the keys Ctrl, Windows and Alt are from left to right in the bottom left corner. When used in conjunction with Pin 7, pins 3 through 1 function as those those keys. Thus pins 7 and 3 together represent the Ctrl key. Pins 7, 3 and 1 together would be Ctrl + Alt, Pins 7m 3 and 8 are Ctrl + Return and will turn off the Braille keyboard. In UEB a capital letter is marked with a preceding pin 6 code, and thus with the control keys, pin 6 is treated as Shift. Pin 7 with either pin 4 or pin 5 will turn off these control keys.</p>
+<p>Pins 1 through 6 are used as defined in the UEB specification. Pin 8 is used as the Return or Enter key. Pin 7 on its own is used as Tab.</p>
+
+<p>For convenience, the keys G and H are mapped to be duplicate Backspace and Delete keys respectively, and can be reached by moving the closer index finger between the tactile keys, left finger from F to G (Backspace) and right finger from J to H (Delete).</p>
+
+<p>On most keyboads the keys Ctrl, Windows and Alt are from left to right in the bottom left corner. When used in conjunction with Pin 7, pins 3 through 1 function as those keys. Thus pins 7 and 3 together represent the Ctrl key. Pins 7, 3 and 1 together would be Ctrl + Alt, Pins 7, 3 and 8 are Ctrl + Return and will turn off the Braille keyboard. In UEB, a capital letter is marked with a preceding pin 6 code, and thus with the control keys, pin 6 is treated as Shift. Pin 7 with either pin 4 or pin 5 will turn off these control keys.</p>
 
 <p>Thus, when used in combination with pin 7, pins 1 through 6 work as follows:</p>
 
@@ -231,9 +236,7 @@ code {
 <h4 id="cursor-mappings">Cursor Mappings <a class="anchor-link" href="#cursor-mappings" aria-label="Link to section Cursor Mappings">#</a></h4>
 <p>Whilst the keys surrounding the letters and punctuation are unaffected in their functionality, it is more convenient for their actions to be more close at hand. To this end, certain editing and cursor functions are available from keys adjacent to those previously described.</p>
 
-<p>Backspace and Delete are mapped to the keys G and H respectively and can be reached by moving the closer index finger between the textured keys, left finger from F to G (Backspace) and right finger from J to H (Delete).</p>
-
-<p>Cursor movement is availble via the W, E, I and O keys. These can be reached by moving the third and fourth fingers of each hand to the line of keys above that used for Braille.</p>
+<p>Cursor movement is available via the W, E, I and O keys. These can be reached by moving the third and fourth fingers of each hand to the line of keys above that used for Braille.</p>
 
 <div class="table-wrapper">
 <table>
@@ -270,7 +273,7 @@ code {
 
 
 <h2 id="configuration">Configuration <a class="anchor-link" href="#configuration" aria-label="Link to section Configuration">#</a></h2>
-<p>The configuration file is optional, and is only used at startup. BrailleKeyboard will need to be restarted to pick up any changes. If it is missing then the keyboard will use default settings. The configuration file uses JSON format as described below. The keyboard looks for the file at %APPDATA%/Roaming/BrailleKeyoboard/config.json, where %APPDATA% is usually C:\Users\&lt;user&gt;\AppData. The file can safely be deleted at any point.</p>
+<p>The configuration file is optional, and is only used when BrailleKeyoard starts. BrailleKeyboard will need to be restarted to pick up any changes. If it is missing then the keyboard will use default settings, with completely syandard UEB. The configuration file uses JSON format as described below. The keyboard looks for the file at %APPDATA%\Roaming\BrailleKeyboard\config.json, where %APPDATA% is usually C:\Users\&lt;user&gt;\AppData. The file can safely be deleted at any point.</p>
 
 <p>See the example <a href="./config.json" target="_blank">config.json</a> that demonstrates the configurations described below.</p>
 
@@ -284,27 +287,27 @@ code {
 
 
 <h3 id="wordsigns">Wordsigns <a class="anchor-link" href="#wordsigns" aria-label="Link to section Wordsigns">#</a></h3>
-<p>UEB has a defined, standard set of wordsigns intended for general use. These are the defaults used by the keyboard and are named &quot;ueb&quot;. However, it can be useful to redefine the wordsigns for specialised, contextual use. These extra wordsigns sets can be defined in the configuration file.</p>
+<p>UEB has a defined, standard set of wordsigns intended for general use. These are the defaults used by BrailleKeyboard and are named &quot;ueb&quot;. However, it can be useful to redefine the wordsigns for specialised, contextual use. These extra wordsigns sets can be defined in the configuration file.</p>
 
-<p>There are two formats that can be used. The first is a dictionary of strings, in which case the set will act like the ueb set in terms of capitalization. The second option is a dictionary of two word lists, defining one word for lower case use, and one for upper case. THis can be useful in contexts where words are only ever in one case, such in coding, for example, C++. Examples of both forms are included in the supplied configuration file.</p>
+<p>There are two formats that can be used. The first is a dictionary of strings, in which case the set will act like the ueb set in terms of capitalization. The second option is a dictionary of two word lists, defining one word for lower case use, and one for upper case. This can be useful in contexts where words are only ever in one case, such as in coding, for example, C++. Examples of both forms are included in the <a href="./config.json" target="_blank">example configuration file</a>.</p>
 
-<p>If a key is omitted in the set definition, then no wordsigns will be defined for that key.</p>
+<p>If a key is omitted in the dictionary definition, then no wordsigns will be defined for that key.</p>
 
-<p>The configuration file can also define which wordsign set should be used when the app is started. The default is the internally defined &quot;ueb&quot; standard set of wordsigns.</p>
+<p>The configuration file can also define which wordsign dictionary should be used when BrailleKeyboard is started. The default is the internally defined &quot;ueb&quot; standard set of wordsigns.</p>
 
-<p>The set in use can be changed by pressing Shift + Return. The subsequent input will be used to find the desired wordsign set and not treated as general keyboard input. The search finishes as soon as there is no name match for a wordsiogn set, or there is only one possible set that it could be. In the first case, the wordsign set will remain unchanged. In the second case, the matching wordsign set will become active. In botn cases, the outcome will be logged at INFO level to the console, and keystrokes will again be passed on.</p>
+<p>The dictionary in use can be changed by pressing Shift + Return. The subsequent input will be used to find the desired wordsign dictionary and not treated as general keyboard input. The search finishes as soon as there is no name match for a wordsign dictionary, or there is only one possible dictionary that it could be. In the first case, the wordsign dictionary will remain unchanged. In the second case, the matching wordsign dictionary will become active. In botn cases, the outcome will be logged at INFO level to the console, and keystrokes will again be passed on.</p>
 
-<p>For easiest use of switching wordsign sets, on the assunption that most users won&#x27;t define a large number of sets, it is recommended that the naming key use a different first letter for each set. hy you only need to use Shift + Return and a single letter to switch the active wordsign set.</p>
+<p>For easiest use of switching wordsign dictionaries, on the assunption that most users won&#x27;t define a large number of dictionaries, it is recommended that the naming key use a different first letter for each set. Then you only need to use Shift + Return and a single letter to switch the active wordsign dictionary.</p>
 
 
 <h3 id="potential-gotcha-from-contraction-implementation">Potential Gotcha from Contraction Implementation <a class="anchor-link" href="#potential-gotcha-from-contraction-implementation" aria-label="Link to section Potential Gotcha from Contraction Implementation">#</a></h3>
-<p>Contractions, wordsigns, groupsigns, etc. are implemented by the BrailleKeyboard sending extra, virtual keystrokes in addition to those directly input by the user when the conditions are met.</p>
+<p>Contractions, wordsigns, groupsigns, etc. are implemented by the BrailleKeyboard sending extra, virtual keystrokes in addition to those directly input by the user, when the conditions are met.</p>
 
-<p>For example, the wordsign for the letter p is &quot;people&quot;. When a standalone letter p is followed by a Space, the BrailleKeyboard will send the extra keystrokes for the letters e, o, p, l and e before passing on the Space. If the stadnalone letter is different then backspaces will also be sent to correct the foregoing text. For example, the wordsign for the letter x is &quot;it&quot;. In this case a standalone letter x followed by a Space, would have the keystrokes Backspace, i and t sent before the Space is passed on.</p>
+<p>For example, the wordsign for the letter p is &quot;people&quot;. When a standalone letter p is followed by a Space, the BrailleKeyboard will send the extra keystrokes for the letters e, o, p, l and e before passing on the Space. If the standalone letter is different then backspaces will also be sent to correct the foregoing text. For example, the wordsign for the letter x is &quot;it&quot;. In this case, a standalone letter x followed by a Space, would produce the extra keystrokes Backspace, i and t before the Space is passed on.</p>
 
-<p>The gotcha arises because the BrailleKeyboard has no concept of which application has focus whilst you are typing, acting as just an intermediary between your physical keyboard and the applications on your PC. Thus, if for example, you type a standalone letter, then switch application, and then type a Space, the standalone letter woil be received by the first application, and the subsequent wordsign expansion will be received by the second application. Because the BrailleKeyboard is unaware of application focus, it does not treat typing in a new application as separate from the previous application.</p>
+<p>The gotcha arises because BrailleKeyboard has no concept of which application has focus whilst you are typing, acting as just an intermediary between your physical keyboard and the applications on your PC. Thus, if for example, you type a standalone letter, then switch application, and then type a Space, the standalone letter woil be received by the first application, and the subsequent wordsign expansion will be received by the second application. Because BrailleKeyboard is unaware of application focus, it does not treat typing in a new application as separate from the previous application.</p>
 
-<p>An easy way to prevent this effect is to type a Grade 1 glyph as your first action in a new application, as this will block any contraction exopansions as per standard UEB.</p>
+<p>An easy way to prevent this effect is to type a Grade 1 glyph as your first action in a new application, as this will block any contraction exopansions, as in standard UEB.</p>
 
 
 
@@ -317,7 +320,7 @@ code {
 </main>
 
 <footer>
-  <p>Generated from with semantic HTML5 and WCAG 2.2-oriented accessibility enhancements.</p>
+  <p>Generated with semantic HTML5 and WCAG 2.2-oriented accessibility enhancements.</p>
 </footer>
 </body>
 </html>
