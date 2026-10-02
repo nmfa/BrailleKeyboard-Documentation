@@ -1,6 +1,8 @@
 ﻿{
 	"logLevel": "info",
 	"defaultWordsigns": "ueb",
+	"ueb_@": "myemail@mydomain.com",
+	"ueb_#": "01234987654",
 	"wordsigns": {
 		"variant": {
 			"b": "but",

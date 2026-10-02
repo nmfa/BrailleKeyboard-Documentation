@@ -112,7 +112,6 @@ code {
     <li><a href="#introduction">Introduction</a></li>
     <li><a href="#basics">Basics</a></li>
     <li><a href="#keyboard-layout">Keyboard Layout</a></li>
-    <li><a href="#shortforms">Shortforms</a></li>
     <li><a href="#configuration">Configuration</a></li>
     <li><a href="#logging">Logging</a></li>
     <li><a href="#wordsigns">Wordsigns</a></li>
@@ -267,10 +266,6 @@ code {
 </table></div>
 
 
-<h3 id="shortforms">Shortforms <a class="anchor-link" href="#shortforms" aria-label="Link to section Shortforms">#</a></h3>
-<p>Only shortforms composed of two glyphs are currently supported.</p>
-
-
 
 <h2 id="configuration">Configuration <a class="anchor-link" href="#configuration" aria-label="Link to section Configuration">#</a></h2>
 <p>The configuration file is optional, and is only used when BrailleKeyoard starts. BrailleKeyboard will need to be restarted to pick up any changes. If it is missing then the keyboard will use default settings, with completely syandard UEB. The configuration file uses JSON format as described below. The keyboard looks for the file at %APPDATA%\Roaming\BrailleKeyboard\config.json, where %APPDATA% is usually C:\Users\&lt;user&gt;\AppData. The file can safely be deleted at any point.</p>
@@ -299,6 +294,7 @@ code {
 
 <p>For easiest use of switching wordsign dictionaries, on the assunption that most users won&#x27;t define a large number of dictionaries, it is recommended that the naming key use a different first letter for each set. Then you only need to use Shift + Return and a single letter to switch the active wordsign dictionary.</p>
 
+<p>From version 1.1, a couple of custom wordsigned are available, @ and #. These are intended to take an email and a phone number, although the contents are not validated, and so can coatain anything. For custom dictionaries, just ise the @ or # as they key. To configure for the default UEB wordsign dictionary, use the top level ueb_@ and ueb_# keys. See the example configuration file for examples.</p>
 
 <h3 id="potential-gotcha-from-contraction-implementation">Potential Gotcha from Contraction Implementation <a class="anchor-link" href="#potential-gotcha-from-contraction-implementation" aria-label="Link to section Potential Gotcha from Contraction Implementation">#</a></h3>
 <p>Contractions, wordsigns, groupsigns, etc. are implemented by the BrailleKeyboard sending extra, virtual keystrokes in addition to those directly input by the user, when the conditions are met.</p>
